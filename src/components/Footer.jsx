@@ -23,10 +23,10 @@ const Footer = () => {
           <span>FAQs</span>
           <span>Contact Us</span>
           {/* Icons */}
-          <a href="#" className="ml-2 text-black hover:opacity-70">
+          <a href="https://www.instagram.com/" className="ml-2 text-black hover:opacity-70">
             <Instagram className="w-5 h-5 inline" />
           </a>
-          <a href="#" className="ml-1 text-black hover:opacity-70">
+          <a href="https://www.linkedin.com/" className="ml-1 text-black hover:opacity-70">
             <Linkedin className="w-5 h-5 inline" />
           </a>
         </div>
