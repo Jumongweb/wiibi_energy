@@ -39,14 +39,14 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            to="/about"
+            to="/packages"
             className={`pb-1 border-b-2 transition-colors ${
-              isActive('/about')
+              isActive('/packages')
                 ? 'text-yellow-400 border-yellow-400'
                 : 'text-black border-transparent hover:text-yellow-400'
             }`}
           >
-            About Us
+            Packages
           </Link>
           <Link
             to="/services"
@@ -59,16 +59,6 @@ const Navbar = () => {
             Services
           </Link>
           <Link
-            to="/packages"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/packages')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Packages
-          </Link>
-          <Link
             to="/projects"
             className={`pb-1 border-b-2 transition-colors ${
               isActive('/projects')
@@ -77,6 +67,16 @@ const Navbar = () => {
             }`}
           >
             Projects
+          </Link>
+          <Link
+            to="/about"
+            className={`pb-1 border-b-2 transition-colors ${
+              isActive('/about')
+                ? 'text-yellow-400 border-yellow-400'
+                : 'text-black border-transparent hover:text-yellow-400'
+            }`}
+          >
+            About Us
           </Link>
           <Link
             to="/contact"
