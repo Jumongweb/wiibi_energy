@@ -49,16 +49,6 @@ const Navbar = () => {
             Packages
           </Link>
           <Link
-            to="/services"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/services')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Services
-          </Link>
-          <Link
             to="/projects"
             className={`pb-1 border-b-2 transition-colors ${
               isActive('/projects')
@@ -67,6 +57,16 @@ const Navbar = () => {
             }`}
           >
             Projects
+          </Link>
+          <Link
+            to="/services"
+            className={`pb-1 border-b-2 transition-colors ${
+              isActive('/services')
+                ? 'text-yellow-400 border-yellow-400'
+                : 'text-black border-transparent hover:text-yellow-400'
+            }`}
+          >
+            Services
           </Link>
           <Link
             to="/about"
