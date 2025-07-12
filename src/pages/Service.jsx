@@ -9,7 +9,7 @@ import ContactImg from '../assets/contactImg.png';
 
 const Service = () => {
   return (
-    <section className="px-4 sm:px-8 md:px-16 lg:px-20 py-10">
+    <section className="px-4 sm:px-8 md:px-16 lg:px-20 py-10 mt-24 pt-2">
           <div className="text-left mb-10">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Installation and Service</h1>
             <p className="text-gray-600 text-lg">How we work.</p>

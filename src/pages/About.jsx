@@ -48,7 +48,7 @@ const About = () => {
   }, []);
 
   return (
-    <section className="px-6 md:px-20 py-10">
+    <section className="px-6 md:px-20 py-10 mt-24 pt-2">
       {/* About */}
       <div className="max-w-xl">
         <h2 className="text-4xl font-bold text-gray-900">About Us</h2>

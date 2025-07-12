@@ -19,7 +19,7 @@ import Stock16 from '../assets/stock16.avif';
 
 const Projects = () => {
   return (
-    <section className="px-4 sm:px-8 md:px-16 lg:px-20 py-10">
+    <section className="px-4 sm:px-8 md:px-16 lg:px-20 py-10 mt-24 pt-2">
       <div className="mb-8">
         <h2 className="text-4xl font-bold">Projects</h2>
         <p>What we have worked on.</p>
