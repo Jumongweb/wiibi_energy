@@ -1,32 +1,144 @@
 import React from 'react';
-import One from '../assets/one.png';
-import Two from '../assets/two.png';
-import Three from '../assets/three.png';
-import Four from '../assets/four.png';
-import Five from '../assets/five.png';
-import Six from '../assets/six.png';
 import ContactImg from '../assets/contactImg.png';
+import Stock1 from '../assets/stockImg1.avif';
+import Stock2 from '../assets/stockImg2.avif';
+import Stock3 from '../assets/stockImg3.avif';
+import Stock4 from '../assets/stockImg4.avif';
+import Stock5 from '../assets/stock5.webp';
+import Stock6 from '../assets/Stock6.webp';
+import Stock7 from '../assets/stock7.webp';
+import Stock8 from '../assets/stock8.avif';
+import Stock9 from '../assets/stock9.avif';
+import Stock10 from '../assets/stock10.avif';
+import Stock11 from '../assets/stock11.avif';
+import Stock12 from '../assets/stock12.avif';
+import Stock13 from '../assets/stock13.avif';
+import Stock14 from '../assets/stock14.avif';
+import Stock15 from '../assets/stock15.avif';
+import Stock16 from '../assets/stock16.avif';
 
 const Projects = () => {
   return (
     <section className="px-4 sm:px-8 md:px-16 lg:px-20 py-10">
-      <div className="text-left mb-10">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Installation and Service</h1>
-        <p className="text-gray-600 text-lg">How we work.</p>
+      <div className="mb-8">
+        <h2 className="text-4xl font-bold">Projects</h2>
+        <p>What we have worked on.</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <img src={One} alt="Request your free code" className="w-full h-auto object-contain" />
-        <img src={Two} alt="Site Inspection" className="w-full h-auto object-contain" />
-        <img src={Three} alt="Personalized Design System" className="w-full h-auto object-contain" />
-        <img src={Four} alt="Calendar / Schedule" className="w-full h-auto object-contain" />
-        <img src={Five} alt="Professional Installation" className="w-full h-auto object-contain" />
-        <img src={Six} alt="System and Commissioning" className="w-full h-auto object-contain" />
+      {/* Project 1 */}
+      <div className="flex gap-8 flex-col md:flex-row">
+        <div>
+          <div className="flex gap-4 h-[250px]">
+            <div className="flex-1">
+              <img src={Stock1} alt="Stock1" className="w-full h-full object-cover rounded-xl" />
+            </div>
+            <div className="flex-1 flex-col gap-2 hidden md:flex">
+              <div className="h-1/2">
+                <img src={Stock2} alt="Stock2" className="w-full h-full object-cover rounded-xl" />
+              </div>
+              <div className="flex gap-2 h-1/2">
+                <div className="w-1/2">
+                  <img src={Stock3} alt="Stock3" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="w-1/2">
+                  <img src={Stock4} alt="Stock4" className="w-full h-full object-cover rounded-xl" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="font-bold mt-4">Joes Bar & Lounge</p>
+            <p>2023</p>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex gap-4 h-[250px]">
+            <div className="flex-1">
+              <img src={Stock5} alt="Stock5" className="w-full h-full object-cover rounded-xl" />
+            </div>
+            <div className="flex-1 flex-col gap-2 hidden md:flex">
+              <div className="h-1/2">
+                <img src={Stock6} alt="Stock6" className="w-full h-full object-cover rounded-xl" />
+              </div>
+              <div className="flex gap-2 h-1/2">
+                <div className="w-1/2">
+                  <img src={Stock7} alt="Stock7" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="w-1/2">
+                  <img src={Stock8} alt="Stock8" className="w-full h-full object-cover rounded-xl" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="font-bold mt-4">Admor Links</p>
+            <p>2025</p>
+          </div>
+        </div>
       </div>
 
-      {/* Contact Section */}
+      {/* Project 2 */}
+      <div className="flex gap-8 flex-col md:flex-row mt-8">
+        <div>
+          <div className="flex gap-4 h-[250px]">
+            <div className="flex-1">
+              <img src={Stock13} alt="Stock13" className="w-full h-full object-cover rounded-xl" />
+            </div>
+            <div className="flex-1 flex-col gap-2 hidden md:flex">
+              <div className="h-1/2">
+                <img src={Stock14} alt="Stock14" className="w-full h-full object-cover rounded-xl" />
+              </div>
+              <div className="flex gap-2 h-1/2">
+                <div className="w-1/2">
+                  <img src={Stock15} alt="Stock15" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="w-1/2">
+                  <img src={Stock16} alt="Stock16" className="w-full h-full object-cover rounded-xl" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="font-bold mt-4">
+            Mr. Joseph Residence
+            </p>
+            <p>2025</p>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex gap-4 h-[250px]">
+            <div className="flex-1">
+              <img src={Stock9} alt="Stock9" className="w-full h-full object-cover rounded-xl" />
+            </div>
+            <div className="flex-1 flex-col gap-2 hidden md:flex">
+              <div className="h-1/2">
+                <img src={Stock10} alt="Stock10" className="w-full h-full object-cover rounded-xl" />
+              </div>
+              <div className="flex gap-2 h-1/2">
+                <div className="w-1/2">
+                  <img src={Stock11} alt="Stock11" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="w-1/2">
+                  <img src={Stock12} alt="Stock12" className="w-full h-full object-cover rounded-xl" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p className="font-bold mt-4">
+            Operation feed a thousand family and installation of solar power for business
+              empowerment Easter giveaway
+
+            </p>
+            <p>2025</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact CTA */}
       <div className="flex flex-col md:flex-row items-start gap-8 mt-12">
-        {/* Image Block */}
         <div className="flex-1">
           <img
             src={ContactImg}
@@ -35,7 +147,6 @@ const Projects = () => {
           />
         </div>
 
-        {/* Text Block */}
         <div className="flex-1 text-left space-y-4">
           <div>
             <p className="text-3xl sm:text-4xl font-bold leading-tight">Do you have questions?</p>
