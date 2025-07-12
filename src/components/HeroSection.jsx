@@ -1,5 +1,4 @@
-import SolarPower from '../assets/solarPower.png'
-import VidPlayer from '../assets/vidPlayer.png'
+import SolarPower from '../assets/solarPower.png';
 
 const HeroSection = () => {
   return (
@@ -26,11 +25,16 @@ const HeroSection = () => {
       </div>
       
       <div className='w-full lg:w-1/2 mt-6 lg:mt-0 flex justify-center'>
-        <img 
-          src={VidPlayer} 
-          alt="Video Player" 
-          className='w-full max-w-md lg:max-w-lg h-auto'
-        />
+        <div className='w-full max-w-md lg:max-w-lg aspect-video'>
+          <iframe
+            className='w-full h-full rounded-lg'
+            src="https://www.youtube.com/embed/DIkCQ1NU1E0?autoplay=1&mute=1"
+            title="Wiibi Solar Video"
+            frameBorder="0"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </section>
   );
