@@ -45,26 +45,41 @@ const CardContent = ({ children }) => (
   <div className="space-y-4 flex-1">{children}</div>
 );
 
-const CardFooter = ({ price, originalPrice, showDiscount, discountPercent, children }) => (
+const CardFooter = ({ price, originalPrice, showDiscount, warranty, children }) => (
   <div className="mt-4">
+    <div className="mb-3">
+      <ul className="space-y-1">
+        {warranty.map((item, i) => (
+          <li key={i} className="flex items-center text-sm">
+            <img src={MarkActive} alt="mark active" className="h-4 w-4 mr-2" />
+            <span className="text-gray-600">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
     <div className="mb-3 text-left">
       <span className="text-2xl font-bold text-gray-900">{price}</span>
       {originalPrice && (
         <>
           <span className="text-sm text-gray-500 line-through ml-2">{originalPrice}</span>
-          {showDiscount && discountPercent && (
-            <span className="text-sm text-red-500 font-semibold ml-2">{discountPercent}% off</span>
+          {showDiscount && (
+            // Show 18% off for first package, 13% off for the third package (index 2)
+            <span className="text-sm text-red-500 font-semibold ml-2">
+              {price === "₦865,000" ? "13% off" : "18% off"}
+            </span>
           )}
         </>
       )}
     </div>
+
     {children}
   </div>
 );
 
-export default function Packages() {
+export default function Packages2() {
   const icons = {
-    TV, // uppercase "TV"
+    TV,
     Fan,
     Light,
     Gadget,
@@ -76,78 +91,88 @@ export default function Packages() {
 
   const packageList = [
     {
-      name: "Basic Solar (mini)",
-      price: "₦570,000",
-      originalPrice: "₦700,000",
+      name: "Back Up Power 1.0",
+      price: "₦350,000",
       features: [
         "1kva Inverter",
-        "1220 wet Battery",
-        "500w solar Panels",
+        "1x 220Ah wet battery",
         "Wiring and Installation",
       ],
       details: ["TV", "Fan", "Light", "Smart Pump"],
       warranty: ["Free Home Delivery", "1 year warranty"],
     },
     {
-      name: "Standard",
-      price: "₦1,200,000",
-      originalPrice: null,
+      name: "Back Up Power 2.0",
+      price: "₦545,000",
       features: [
-        "2.5 pure sine wave inverter",
-        "2x 220AH wet battery",
-        "1650 Half cut solar Panels",
-        "MPPT Solar Panel",
+        "2.5 kva sine wave inverter",
+        "200AH gel battery",
+        "300w high cut solar Panels",
+        "MPPT Solar charge controller",
         "Wiring and Installation",
       ],
       details: ["TV", "Fan", "Light", "Smart Pump", "Air Conditioner"],
       warranty: ["Free Home Delivery", "2 year warranty"],
     },
     {
-      name: "Advance",
-      price: "₦1,300,000",
-      originalPrice: "₦1,500,000",
+      name: "Back Up 2.1",
+      price: "₦865,000",
       features: [
         "3.5 kva Inverter",
-        "4x 200AH wet battery",
-        "3300w high cut solar Panels",
+        "200AH gel battery",
+        "300w high cut solar Panels",
         "Wiring and Installation",
+        "MPPT Solar charge controller",
       ],
       details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
       warranty: ["Free Home Delivery", "2 year warranty"],
     },
     {
-      name: "Classic",
-      price: "₦2,300,000",
-      originalPrice: "₦2,500,000",
+      name: "Back Up Power 3.0",
+      price: "₦650,000",
       features: [
         "5 kva Inverter",
-        "2x 200AH gel battery",
-        "500w high cut solar Panels",
-        "Wiring and Installation",
+        "4x 200 wet battery",
+        "3300w solar Panels",
         "MPPT Solar charge controller",
+        "Wiring and Installation"
       ],
-      details: ["Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
+      details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
       warranty: ["Free Home Delivery", "3 year warranty"],
     },
     {
-      name: "Advance",
-      price: "₦1,300,000",
-      originalPrice: "₦1,500,000",
+      name: "Back Up Power 3.1",
+      price: "₦980,000",
       features: [
-        "3.5 kva Inverter",
+        "2.5 kva Inverter",
         "4x 200 watt battery",
-        "300w high cut solar Panels",
+        "Battery Pack",
         "Wiring and Installation",
-        "MPPT Solar charge controller",
+        "Free Home Delivery",
       ],
-      details: ["Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
+      details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
+      warranty: ["Free Home Delivery", "3 year warranty"],
+    },
+    {
+      name: "Back Up Power 4.0",
+      price: "₦950,000",
+      features: [
+        "1 kva Inverter",
+        "1x 200Ah watt battery",
+        "Wiring and Installation",
+        "Free Home Delivery",
+      ],
+      details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
       warranty: ["Free Home Delivery", "3 year warranty"],
     },
   ];
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Track if the path is /packages or /packages2 for active button styles
   const isReserved = location.pathname === "/packages2";
+  const isPackages = location.pathname === "/packages";
 
   const handleTabClick = (type) => {
     if (type === "home") {
@@ -159,17 +184,15 @@ export default function Packages() {
 
   return (
     <div className="w-full max-w-7xl mx-auto p-6 mt-24 pt-2">
-      {/* Header */}
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">Packages and Pricing</h2>
         <p className="text-gray-600">We have packages designed for efficiency and saving money.</p>
 
-        {/* Buttons */}
         <div className="mt-4 flex flex-wrap gap-4">
           <button
             onClick={() => handleTabClick("home")}
             className={`${
-              !isReserved
+              isPackages
                 ? "bg-yellow-400 text-white"
                 : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
             } font-medium py-2 px-4 rounded-md`}
@@ -206,8 +229,8 @@ export default function Packages() {
       >
         {packageList.map((pkg, index) => {
           const isAdvance = pkg.name === "Advance";
+          // Only first package (index 0) shows 18% off, third package (index 2) shows 13% off
           const showDiscount = index === 0 || index === 2;
-          const discountPercent = index === 0 ? 18 : index === 2 ? 13 : null;
 
           return (
             <Card
@@ -233,7 +256,7 @@ export default function Packages() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-medium text-gray-900 mb-2">To Powers:</p>
+                  <p className="text-sm font-medium text-gray-900 mb-4">To Power:</p>
                   <ul className="space-y-1">
                     {pkg.details.map((item, i) => (
                       <li key={i} className="flex items-center text-sm">
@@ -247,24 +270,13 @@ export default function Packages() {
                     ))}
                   </ul>
                 </div>
-
-                <div>
-                  <ul className="space-y-1">
-                    {pkg.warranty.map((item, i) => (
-                      <li key={i} className="flex items-center text-sm">
-                        <img src={MarkActive} alt="mark active" className="h-4 w-4 mr-2" />
-                        <span className="text-gray-600">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </CardContent>
 
               <CardFooter
                 price={pkg.price}
                 originalPrice={pkg.originalPrice}
                 showDiscount={showDiscount}
-                discountPercent={discountPercent}
+                warranty={pkg.warranty}
               >
                 <Button>Buy</Button>
               </CardFooter>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Packages = () => {
+const Packages2 = () => {
   return (
     <section>
-        <Packages/>
+        <Packages2/>
     </section>
   )
 }
 
-export default Packages
+export default Packages2
