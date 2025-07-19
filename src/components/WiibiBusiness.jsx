@@ -27,7 +27,7 @@ const Badge = () => (
 
 const Card = ({ children, className }) => (
   <div
-    className={`relative overflow-visible bg-white rounded-xl shadow-md pt-10 p-4 flex flex-col justify-between min-h-[540px] ${
+    className={`relative overflow-visible bg-white rounded-xl shadow-md pt-10 p-4 flex flex-col justify-between min-h-[540px] w-full ${
       className || ""
     }`}
   >
@@ -45,26 +45,40 @@ const CardContent = ({ children }) => (
   <div className="space-y-4 flex-1">{children}</div>
 );
 
-const CardFooter = ({ price, originalPrice, showDiscount, discountPercent, children }) => (
+const CardFooter = ({ price, originalPrice, showDiscount, warranty, children }) => (
   <div className="mt-4">
+    <div className="mb-3">
+      <ul className="space-y-1">
+        {warranty.map((item, i) => (
+          <li key={i} className="flex items-center text-sm">
+            <img src={MarkActive} alt="mark active" className="h-4 w-4 mr-2" />
+            <span className="text-gray-600">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
     <div className="mb-3 text-left">
       <span className="text-2xl font-bold text-gray-900">{price}</span>
       {originalPrice && (
         <>
           <span className="text-sm text-gray-500 line-through ml-2">{originalPrice}</span>
-          {showDiscount && discountPercent && (
-            <span className="text-sm text-red-500 font-semibold ml-2">{discountPercent}% off</span>
+          {showDiscount && (
+            <span className="text-sm text-red-500 font-semibold ml-2">
+              {price === "₦865,000" ? "13% off" : "18% off"}
+            </span>
           )}
         </>
       )}
     </div>
+
     {children}
   </div>
 );
 
-export default function Packages() {
+export default function Packages3() {
   const icons = {
-    TV, // uppercase "TV"
+    TV,
     Fan,
     Light,
     Gadget,
@@ -76,82 +90,58 @@ export default function Packages() {
 
   const packageList = [
     {
-      name: "Basic Solar (mini)",
-      price: "₦570,000",
-      originalPrice: "₦700,000",
-      features: [
-        "1kva Inverter",
-        "1220 wet Battery",
-        "500w solar Panels",
-        "Wiring and Installation",
-      ],
-      details: ["TV", "Fan", "Light", "Smart Pump"],
-      warranty: ["Free Home Delivery", "1 year warranty"],
-    },
-    {
-      name: "Standard",
+      name: "Business Basic",
       price: "₦1,200,000",
-      originalPrice: null,
       features: [
-        "2.5 pure sine wave inverter",
-        "2x 220AH wet battery",
-        "1650 Half cut solar Panels",
-        "MPPT Solar Panel",
-        "Wiring and Installation",
-      ],
-      details: ["TV", "Fan", "Light", "Smart Pump", "Air Conditioner"],
-      warranty: ["Free Home Delivery", "2 year warranty"],
-    },
-    {
-      name: "Advance",
-      price: "₦1,300,000",
-      originalPrice: "₦1,500,000",
-      features: [
-        "3.5 kva Inverter",
-        "4x 200AH wet battery",
-        "3300w high cut solar Panels",
+        "5kva Inverter",
+        "4x 200Ah gel batteries",
+        "2000w solar panels",
+        "MPPT Solar charge controller",
         "Wiring and Installation",
       ],
       details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
-      warranty: ["Free Home Delivery", "2 year warranty"],
+      warranty: ["Free Delivery", "2 year warranty"],
     },
     {
-      name: "Classic",
-      price: "₦2,300,000",
-      originalPrice: "₦2,500,000",
+      name: "Business Standard",
+      price: "₦2,500,000",
       features: [
-        "5 kva Inverter",
-        "2x 200AH gel battery",
-        "500w high cut solar Panels",
-        "Wiring and Installation",
+        "10kva Inverter",
+        "8x 200Ah gel batteries",
+        "4000w solar panels",
         "MPPT Solar charge controller",
+        "Wiring and Installation",
       ],
-      details: ["Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
-      warranty: ["Free Home Delivery", "3 year warranty"],
+      details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
+      warranty: ["Free Delivery", "3 year warranty"],
     },
     {
-      name: "Advance",
-      price: "₦1,300,000",
-      originalPrice: "₦1,500,000",
+      name: "Business Premium",
+      price: "₦4,800,000",
       features: [
-        "3.5 kva Inverter",
-        "4x 200 watt battery",
-        "300w high cut solar Panels",
-        "Wiring and Installation",
+        "15kva Inverter",
+        "12x 200Ah gel batteries",
+        "6000w solar panels",
         "MPPT Solar charge controller",
+        "Wiring and Installation",
       ],
-      details: ["Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
-      warranty: ["Free Home Delivery", "3 year warranty"],
+      details: ["TV", "Fan", "Light", "Gadgets", "Smart Pump", "Fridge", "Air Conditioner"],
+      warranty: ["Free Delivery", "5 year warranty"],
     },
   ];
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const isBusiness = location.pathname === "/packages3";
+  const isPackages = location.pathname === "/packages";
   const isReserved = location.pathname === "/packages2";
 
   const handleTabClick = (type) => {
     if (type === "home") {
       navigate("/packages");
+    } else if (type === "business") {
+      navigate("/packages3");
     } else if (type === "reserved") {
       navigate("/packages2");
     }
@@ -159,65 +149,57 @@ export default function Packages() {
 
   return (
     <div className="w-full max-w-7xl mx-auto p-6 mt-24 pt-2">
-      {/* Header */}
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">Packages and Pricing</h2>
         <p className="text-gray-600">We have packages designed for efficiency and saving money.</p>
-
-        {/* Buttons */}
-        <div className="mt-4 flex flex-wrap gap-4">
+        <div className="mt-4 flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto">
           <button
             onClick={() => handleTabClick("home")}
             className={`${
-              !isReserved
+              isPackages
                 ? "bg-yellow-400 text-white"
                 : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
-            } font-medium py-2 px-4 rounded-md`}
+            } text-sm sm:text-base font-medium py-2 px-3 rounded-md whitespace-nowrap`}
           >
             Wiibi Home
           </button>
+
           <button
-            className="bg-[#f3f3f3] text-black hover:bg-yellow-500 font-medium py-2 px-4 rounded-md"
+            onClick={() => handleTabClick("business")}
+            className={`${
+              isBusiness
+                ? "bg-yellow-400 text-white"
+                : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
+            } text-sm sm:text-base font-medium py-2 px-3 rounded-md whitespace-nowrap`}
           >
             Wiibi Business
           </button>
+
           <button
             onClick={() => handleTabClick("reserved")}
             className={`${
               isReserved
                 ? "bg-yellow-400 text-white"
                 : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
-            } font-medium py-2 px-4 rounded-md`}
+            } text-sm sm:text-base font-medium py-2 px-3 rounded-md whitespace-nowrap`}
           >
             Wiibi Reserved
           </button>
         </div>
       </div>
 
-      {/* Cards */}
-      <div
-        className="flex gap-6 overflow-x-auto pb-4 -mx-4 px-4 relative"
-        style={{
-          overflowY: "visible",
-          WebkitOverflowScrolling: "touch",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-        }}
-      >
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {packageList.map((pkg, index) => {
-          const isAdvance = pkg.name === "Advance";
-          const showDiscount = index === 0 || index === 2;
-          const discountPercent = index === 0 ? 18 : index === 2 ? 13 : null;
+          const isPremium = pkg.name === "Business Premium";
+          const showDiscount = index === 1;
 
           return (
             <Card
               key={index}
-              className={`relative flex-shrink-0 w-80 ${
-                isAdvance ? "border border-yellow-400" : ""
-              }`}
+              className={isPremium ? "border border-yellow-400" : ""}
             >
-              {isAdvance && <Badge />}
-
+              {isPremium && <Badge />}
               <CardHeader title={pkg.name} />
 
               <CardContent>
@@ -233,7 +215,7 @@ export default function Packages() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-medium text-gray-900 mb-2">To Powers:</p>
+                  <p className="text-sm font-medium text-gray-900 mb-4">To Power:</p>
                   <ul className="space-y-1">
                     {pkg.details.map((item, i) => (
                       <li key={i} className="flex items-center text-sm">
@@ -247,24 +229,13 @@ export default function Packages() {
                     ))}
                   </ul>
                 </div>
-
-                <div>
-                  <ul className="space-y-1">
-                    {pkg.warranty.map((item, i) => (
-                      <li key={i} className="flex items-center text-sm">
-                        <img src={MarkActive} alt="mark active" className="h-4 w-4 mr-2" />
-                        <span className="text-gray-600">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </CardContent>
 
               <CardFooter
                 price={pkg.price}
                 originalPrice={pkg.originalPrice}
                 showDiscount={showDiscount}
-                discountPercent={discountPercent}
+                warranty={pkg.warranty}
               >
                 <Button>Buy</Button>
               </CardFooter>

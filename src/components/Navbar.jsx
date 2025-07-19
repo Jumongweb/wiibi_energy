@@ -23,81 +23,39 @@ const Navbar = () => {
 
   return (
     <div className='fixed top-0 left-0 right-0 bg-white z-50'>
-      {/* Main Navbar */}
-      <div className='flex items-center justify-between px-4 md:px-8 lg:px-20 py-6'>
-        {/* Logo */}
+      <div className='flex items-center justify-between px-4 md:px-6 lg:px-20 py-6'>
         <div className='flex gap-2 items-center'>
           <img src={Logo} alt="Wiibi Energy Logo" className='h-8 w-8' />
-          <span className='text-lg font-semibold'>Wiibi Energy</span>
+          <span className='text-lg font-semibold whitespace-nowrap'>Wiibi Energy</span>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className='hidden md:flex gap-6'>
-          <Link
-            to="/"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/packages"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/packages')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Packages
-          </Link>
-          <Link
-            to="/projects"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/projects')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/services"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/services')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Services
-          </Link>
-          <Link
-            to="/about"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/about')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            About Us
-          </Link>
-          <Link
-            to="/contact"
-            className={`pb-1 border-b-2 transition-colors ${
-              isActive('/contact')
-                ? 'text-yellow-400 border-yellow-400'
-                : 'text-black border-transparent hover:text-yellow-400'
-            }`}
-          >
-            Contact Us
-          </Link>
+        {/* Desktop Nav Links */}
+        <div className='hidden md:flex gap-4 items-center'>
+          {[
+            { to: "/", label: "Home" },
+            { to: "/packages", label: "Packages" },
+            { to: "/projects", label: "Projects" },
+            { to: "/services", label: "Services" },
+            { to: "/about", label: "About Us" },
+            { to: "/contact", label: "Contact Us" }
+          ].map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className={`pb-1 border-b-2 whitespace-nowrap transition-colors ${
+                isActive(to)
+                  ? 'text-yellow-400 border-yellow-400'
+                  : 'text-black border-transparent hover:text-yellow-400'
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Desktop Button */}
         <div className='hidden md:block'>
-          <button className="bg-yellow-400 text-white px-4 py-2 rounded hover:bg-yellow-500 transition-colors">
+          <button className="bg-yellow-400 text-white px-4 py-2 rounded whitespace-nowrap hover:bg-yellow-500 transition-colors min-w-fit">
             Get a Quote
           </button>
         </div>
@@ -138,72 +96,27 @@ const Navbar = () => {
               </button>
             </div>
             <div className='flex flex-col py-4'>
-              <Link
-                to="/"
-                onClick={closeMenu}
-                className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors ${
-                  isActive('/')
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-black'
-                }`}
-              >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                onClick={closeMenu}
-                className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors ${
-                  isActive('/about')
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-black'
-                }`}
-              >
-                About Us
-              </Link>
-              <Link
-                to="/services"
-                onClick={closeMenu}
-                className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors ${
-                  isActive('/services')
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-black'
-                }`}
-              >
-                Services
-              </Link>
-              <Link
-                to="/packages"
-                onClick={closeMenu}
-                className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors ${
-                  isActive('/packages')
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-black'
-                }`}
-              >
-                Packages
-              </Link>
-              <Link
-                to="/projects"
-                onClick={closeMenu}
-                className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors ${
-                  isActive('/projects')
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-black'
-                }`}
-              >
-                Projects
-              </Link>
-              <Link
-                to="/contact"
-                onClick={closeMenu}
-                className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors ${
-                  isActive('/contact')
-                    ? 'bg-yellow-500 text-white'
-                    : 'text-black'
-                }`}
-              >
-                Contact Us
-              </Link>
+              {[
+                { to: "/", label: "Home" },
+                { to: "/about", label: "About Us" },
+                { to: "/services", label: "Services" },
+                { to: "/packages", label: "Packages" },
+                { to: "/projects", label: "Projects" },
+                { to: "/contact", label: "Contact Us" }
+              ].map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  onClick={closeMenu}
+                  className={`px-6 py-3 font-medium hover:bg-yellow-500 transition-colors whitespace-nowrap ${
+                    isActive(to)
+                      ? 'bg-yellow-500 text-white'
+                      : 'text-black'
+                  }`}
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
