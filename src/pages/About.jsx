@@ -8,24 +8,38 @@ import Address from '../assets/address.svg';
 const packages = [
   {
     title: "Solar + Lithium Packages",
-    delivers: "High-efficiency panels paired with long-life Li-ion batteries for maximum uptime.",
+    delivers: "High-efficiency panels paired",
+    delivers2: "with long-life Li-ion batteries",
+    delivers3: "for maximum uptime.",
     clients: "Homes, SMEs, tech hubs",
   },
   {
     title: "Solar + Tubular Backup",
-    delivers: "Swap old inverters for hybrid units with app-based monitoring.",
-    clients: "Small offices, clinics, households",
+    delivers: "Swap old inverters for hybrid",
+    delivers2: "units with app-based",
+    delivers3: "monitoring.",
+    clients: "Retail shops, clinics, schools",
   },
   {
     title: "Smart Inverter Retrofits",
-    delivers: "Complete off-grid or hybrid solar solutions tailored to your energy needs.",
+    delivers: "Swap old inverters for hybrid",
+    delivers2: "units with app-based",
+    delivers3: "monitoring.",
     clients: "Homes, SMEs, tech hubs",
   },
   {
     title: "Energy Monitoring & IoT Integration",
-    delivers: "High-efficiency panels paired with long-life Li-ion batteries for maximum uptime.",
+    delivers: "High-efficiency panels paired",
+    delivers2: "with long-life Li-ion batteries",
+    delivers3: "for maximum uptime.",
     clients: "Smart-home enthusiasts, property developers",
   },
+  {
+    title: "Consulting & Financing",
+    delivers: "Site audits, ROI modeling, and",
+    delivers2: "flexible payment plans.",
+    clients: "New builds, real-estate projects"
+  }
 ];
 
 const About = () => {
@@ -82,13 +96,13 @@ const About = () => {
       </div>
 
       {/* What We Do */}
-      <div className="mt-16">
+      <div className="mt-16 mb-24 pl-4">
         <h3 className="text-2xl font-bold text-gray-900 mb-4">What we do.</h3>
 
         {/* Mobile swipeable cards */}
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory md:hidden"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory md:hidden px-4 -mx-4 mt-8"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
@@ -98,27 +112,31 @@ const About = () => {
           {packages.map((item, i) => (
             <div
               key={i}
-              className="min-w-[90%] bg-[#f8f8f8] p-4 rounded-xl border-t-4 border-yellow-400 snap-start shrink-0"
+              className="min-w-[100%] bg-[#f8f8f8] py-8 px-6 rounded-xl border-t-[6px] border-yellow-400 snap-start shrink-0"
             >
-              <p className="font-bold mb-8">{item.title}</p>
-              <div>
-                <p className="font-medium text-gray-800">What it delivers</p>
-                <p className="text-sm text-gray-600 mt-1">{item.delivers}</p>
+              <p className="font-bold mb-10 text-lg">{item.title}</p>
+
+              <div className="mt-6">
+                <p className="text-sm text-gray-600 mb-2">What it delivers</p>
+                <p className="break-words leading-relaxed sm:text-base">{item.delivers}</p>
+                <p className="break-words leading-relaxed sm:text-base">{item.delivers2}</p>
+                <p className="break-words leading-relaxed sm:text-base">{item.delivers3}</p>
               </div>
-              <div className="mt-8">
-                <p className="font-medium text-gray-800">Typical Clients</p>
-                <p className="text-sm text-gray-600 mt-1">{item.clients}</p>
+
+              <div className="mt-8 mb-8 text-sm">
+                <p className="text-gray-600 mb-1">Typical Clients</p>
+                <p className="">{item.clients}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Mobile indicators */}
-        <div className="flex justify-center mt-4 md:hidden">
+        <div className="flex justify-start mt-4 md:hidden">
           {packages.map((_, i) => (
             <div
               key={i}
-              className={`h-2 w-2 mx-1 rounded-full ${i === activeIndex ? 'bg-yellow-400' : 'bg-gray-300'}`}
+              className={`h-2 w-2 mr-2 rounded-full ${i === activeIndex ? 'bg-yellow-400' : 'bg-gray-300'}`}
             ></div>
           ))}
         </div>
@@ -128,16 +146,20 @@ const About = () => {
           {packages.map((item, i) => (
             <div
               key={i}
-              className="bg-[#f8f8f8] p-4 rounded-xl border-t-4 border-yellow-400"
+              className="bg-[#f8f8f8] p-6 rounded-xl border-t-[6px] border-yellow-400"
             >
-              <p className="font-bold mb-8">{item.title}</p>
-              <div>
-                <p className="font-medium text-gray-800">What it delivers</p>
-                <p className="text-sm text-gray-600 mt-1">{item.delivers}</p>
+              <p className="font-bold mb-10">{item.title}</p>
+
+              <div className="mt-6">
+                <p className="font-medium text-gray-800 mb-1">What it delivers</p>
+                <p className="text-sm text-gray-600 break-words leading-relaxed">{item.delivers}</p>
+                <p className="text-sm text-gray-600 break-words leading-relaxed">{item.delivers2}</p>
+                <p className="text-sm text-gray-600 break-words leading-relaxed">{item.delivers3}</p>                
               </div>
+
               <div className="mt-8">
-                <p className="font-medium text-gray-800">Typical Clients</p>
-                <p className="text-sm text-gray-600 mt-1">{item.clients}</p>
+                <p className="font-medium text-gray-800 mb-1">Typical Clients</p>
+                <p className="text-sm text-gray-600">{item.clients}</p>
               </div>
             </div>
           ))}
@@ -226,7 +248,7 @@ const About = () => {
 
       {/* Get a Quote */}
       <div className="bg-yellow-500 p-6 md:p-8 rounded-2xl mt-16">
-        <div className="">
+        <div>
           <p className="text-2xl md:text-3xl font-bold">Ready to Go Solar?</p>
           <p className="text-2xl md:text-3xl font-bold mt-1">Let us power your world sustainably.</p>
         </div>

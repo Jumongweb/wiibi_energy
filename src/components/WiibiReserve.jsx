@@ -190,10 +190,10 @@ export default function WiibiReserve() {
   return (
     <div className="w-full max-w-7xl mx-auto p-6 mt-24 pt-2">
       <div className="text-left mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Packages and Pricing</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-2 mt-8">Packages and Pricing</h2>
         <p className="text-gray-600">We have packages designed for efficiency and saving money.</p>
 
-        <div className="mt-4 flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto">
+        <div className="mt-8 flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto">
           <button
             onClick={() => handleTabClick("home")}
             className={`${
