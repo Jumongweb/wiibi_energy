@@ -44,7 +44,7 @@ const Navbar = () => {
               to={to}
               className={`pb-1 border-b-2 whitespace-nowrap transition-colors ${
                 isActive(to)
-                  ? 'text-yellow-400 border-yellow-400'
+                  ? 'text-[#fcb139] border-[#fcb139]'
                   : 'text-black border-transparent hover:text-yellow-400'
               }`}
             >
@@ -55,7 +55,7 @@ const Navbar = () => {
 
         {/* Desktop Button */}
         <div className='hidden md:block'>
-          <button className="bg-yellow-400 text-white px-4 py-2 rounded whitespace-nowrap hover:bg-yellow-500 transition-colors min-w-fit">
+          <button className="bg-[#fcb139] text-white px-4 py-2 rounded whitespace-nowrap hover:bg-yellow-500 transition-colors min-w-fit">
             Get a Quote
           </button>
         </div>
