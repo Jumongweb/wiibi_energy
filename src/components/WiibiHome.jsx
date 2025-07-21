@@ -12,14 +12,14 @@ import AirCondition from "../assets/air-conditioning-svgrepo-com 1.svg";
 import MarkActive from "../assets/mark-active.svg";
 
 const Button = ({ children }) => (
-  <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md">
+  <button className="w-full bg-[#fcb139] hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md">
     {children}
   </button>
 );
 
 const Badge = () => (
   <div className="absolute top-2 right-3 -translate-y-1/2 z-20">
-    <span className="text-white inline-flex items-center gap-1 bg-yellow-400 text-xs font-semibold px-3 py-1 rounded-full shadow">
+    <span className="text-white inline-flex items-center gap-1 bg-[#fcb139] text-xs font-semibold px-3 py-1 rounded-full shadow">
       <span className="text-sm text-white">★</span> Popular
     </span>
   </div>
@@ -174,8 +174,8 @@ export default function WiibiHome() {
             onClick={() => handleTabClick("home")}
             className={`${
               isHome
-                ? "bg-yellow-400 text-white"
-                : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
+                ? "bg-[#fcb139] text-white"
+                : "bg-[#f3f3f3] text-black lg:hover:bg-yellow-500"
             } text-sm sm:text-base font-medium py-2 px-3 rounded-md whitespace-nowrap`}
           >
             Wiibi Home
@@ -185,8 +185,8 @@ export default function WiibiHome() {
             onClick={() => handleTabClick("business")}
             className={`${
               isBusiness
-                ? "bg-yellow-400 text-white"
-                : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
+                ? "bg-[#fcb139] text-white"
+                : "bg-[#f3f3f3] text-black lg:hover:bg-yellow-500"
             } text-sm sm:text-base font-medium py-2 px-3 rounded-md whitespace-nowrap`}
           >
             Wiibi Business
@@ -196,8 +196,8 @@ export default function WiibiHome() {
             onClick={() => handleTabClick("reserved")}
             className={`${
               isReserved
-                ? "bg-yellow-400 text-white"
-                : "bg-[#f3f3f3] text-black hover:bg-yellow-500"
+                ? "bg-[#fcb139] text-white"
+                : "bg-[#f3f3f3] text-black lg:hover:bg-yellow-500"
             } text-sm sm:text-base font-medium py-2 px-3 rounded-md whitespace-nowrap`}
           >
             Wiibi Reserved

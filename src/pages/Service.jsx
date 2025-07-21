@@ -44,7 +44,7 @@ const Service = () => {
               </div>
               <div className="space-y-3">
                 <p className="text-gray-600 text-lg">Contact our friend team today.</p>
-                <button className="bg-yellow-400 text-white font-bold py-3 px-6 rounded-xl hover:bg-yellow-500 transition">
+                <button className="bg-[#fcb139] text-white font-bold py-3 px-6 rounded-xl hover:bg-yellow-500 transition">
                   Get a Quote
                 </button>
               </div>
