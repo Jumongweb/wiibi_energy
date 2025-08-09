@@ -3,54 +3,54 @@ import { ChevronRight, ChevronLeft, Plus, Minus } from "lucide-react";
 
 const allFaqs = [
   {
-    question: "Can I speak to your customer Service?",
+    question: "How long does a solar installation take?",
     answer:
-      "Yes, you can contact our customer service through the 'Talk to Us' button or by emailing support@wiibi.com. Our team is available 24/7 to assist you.",
+      "Most rooftop solar + battery installs complete in 2-3 after our site survey, including mounting, wiring, and system commissioning.",
   },
   {
-    question: "Can I get a payment plan for your products",
+    question: "What financing options do you offer?",
     answer:
-      "Absolutely! We offer flexible payment plans on most of our products. Simply select 'Payment Options' at checkout or reach out to our support.",
+      "We provide flexible payment plans from 0% down monthly installments tailored to your cash flow so you can start saving immediately.",
   },
   {
-    question: "What platforms and devices are compatible with Wiibi products?",
+    question: "How much will I save on my energy bills?",
     answer:
-      "Wiibi products are compatible with Android, iOS, Windows, and macOS platforms. Ensure your device meets the minimum system requirements listed on the product page.",
+      "Clients typically see 20–30% savings in year one, with a full payback in 3–5 years depending on system size and usage.",
   },
   {
-    question: "Do you offer international shipping?",
+    question: "Can I expand my system later?",
     answer:
-      "Yes, we ship globally. Shipping fees and delivery times vary depending on your location. View our shipping policy for more info.",
+      "Yes. All our packages from Solar + Lithium to Tubular Backup are modular, so you can add solar panels or batteries at any time.",
   },
   {
-    question: "What is your return policy?",
+    question: "Do you offer remote monitoring?",
     answer:
-      "We offer a 30-day return policy for all purchases. Items must be in original condition. Contact support for return instructions.",
+      "Absolutely. Our GhostHome™ analytics dashboard gives you 24/7 visibility into generation, storage levels, and consumption right on your phone.",
   },
   {
-    question: "Is technical support available after purchase?",
+    question: "What maintenance is required?",
     answer:
-      "Yes, every purchase includes free technical support for the first 6 months. We also offer extended support plans.",
+      "Minimal upkeep: an annual panel cleaning and system health check. We also include real-time alerts so you know if anything needs attention.",
   },
   {
-    question: "Are your products eco-friendly?",
+    question: "Are there any hidden or generator-upsell fees?",
     answer:
-      "We’re committed to sustainability. Most of our products use recyclable packaging and energy-efficient components.",
+      "No. We believe in transparent pricing. what you see is what you pay. No generator packages unless you explicitly request one.",
   },
   {
-    question: "Can I cancel my order after placing it?",
+    question: "What warranties do you provide?",
     answer:
-      "Orders can be canceled within 2 hours of placement. After that, you’ll need to go through our return process.",
+      "We back our work with a 1-year workmanship warranty plus manufacturer warranties of up to 25 years on solar panels and 5 years on inverters and batteries.",
   },
   {
-    question: "Do you provide installation services?",
+    question: "Do I need permits or approvals?",
     answer:
-      "Yes, we provide installation for select regions. Installation can be added during the checkout process.",
+      "We handle all local approvals, permits, and grid-interconnection paperwork, so you don’t have to.",
   },
   {
-    question: "How do I track my order?",
+    question: "How do I get started?",
     answer:
-      "Once your order ships, you’ll receive an email with a tracking number. You can also track it in your account dashboard.",
+      "Simply [Get a Quote] or schedule a free site survey. We’ll assess your roof, loads, and goals then deliver a custom proposal with ROI projections.",
   },
 ];
 
