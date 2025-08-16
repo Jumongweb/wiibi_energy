@@ -18,9 +18,14 @@ const HeroSection = () => {
               className='w-full h-10 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent'
             />
           </div>
-          <button className='bg-yellow-400 text-white px-8 py-2 rounded font-bold w-full hover:bg-yellow-500 transition-colors'>
+          <a
+            href="https://drive.google.com/file/d/1txRvl2XLmWVjMuOjgD5hnyDAwliSidAx/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-yellow-400 text-white px-8 py-2 rounded font-bold w-full hover:bg-yellow-500 transition-colors text-center block"
+          >
             Download Our free solar Guide
-          </button>
+          </a>
         </div>
       </div>
       

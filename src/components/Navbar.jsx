@@ -5,6 +5,10 @@ import Logo from '../assets/logo.svg'
 const Navbar = () => {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [message, setMessage] = useState(
+    "Hi Wiibi Energy, I'm interested in your solar energy solutions and would like to discuss the best package for me."
+  )
 
   const isActive = (path) => {
     if (path === '/packages') {
@@ -19,6 +23,13 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+  }
+
+  const handleSendMessage = () => {
+    const phoneNumber = "2348161554409" // Nigeria country code +234
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+    setIsModalOpen(false)
   }
 
   return (
@@ -55,7 +66,10 @@ const Navbar = () => {
 
         {/* Desktop Button */}
         <div className='hidden md:block'>
-          <button className="bg-[#fcb139] text-white px-4 py-2 rounded whitespace-nowrap hover:bg-yellow-500 transition-colors min-w-fit">
+          <button
+            className="bg-[#fcb139] text-white px-4 py-2 rounded whitespace-nowrap hover:bg-yellow-500 transition-colors min-w-fit"
+            onClick={() => setIsModalOpen(true)}
+          >
             Get a Quote
           </button>
         </div>
@@ -117,6 +131,50 @@ const Navbar = () => {
                   {label}
                 </Link>
               ))}
+
+              {/* Mobile "Get a Quote" button */}
+              <div className="px-6 mt-4">
+                <button
+                  className="w-full bg-[#fcb139] text-white px-4 py-2 rounded whitespace-nowrap hover:bg-yellow-500 transition-colors"
+                  onClick={() => {
+                    closeMenu()
+                    setIsModalOpen(true)
+                  }}
+                >
+                  Get a Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white rounded-2xl shadow-lg p-6 max-w-md w-full relative">
+            <h2 className="text-lg font-semibold mb-4">Message Wiibi Energy</h2>
+
+            <textarea
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              rows="5"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="px-4 py-2 rounded-lg bg-[#fcb139] text-white hover:bg-yellow-500"
+                onClick={handleSendMessage}
+              >
+                Send via WhatsApp
+              </button>
             </div>
           </div>
         </div>
